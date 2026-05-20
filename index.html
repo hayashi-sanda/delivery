@@ -465,17 +465,14 @@ async function kyugyoAdd(){
   const saving=document.getElementById('kyugyoSaving');
   saving.style.display='inline';
   try{
-    const res=await fetch(GAS_URL,{
+    await fetch(GAS_URL,{
       method:'POST',
+      mode:'no-cors',
       body:JSON.stringify({type:'kyugyo',action:'add',date,memo:memoInput.value.trim(),password:ADMIN_PW})
     });
-    const result=await res.json();
-    if(result.ok){
-      dateInput.value='';memoInput.value='';
-      await kyugyoFetch();
-    }else{
-      alert('エラー: '+result.error);
-    }
+    dateInput.value='';memoInput.value='';
+    await new Promise(r=>setTimeout(r,1200));
+    await kyugyoFetch();
   }catch(e){alert('通信エラーが発生しました')}
   saving.style.display='none';
 }
@@ -485,10 +482,12 @@ async function kyugyoDelete(date){
   const saving=document.getElementById('kyugyoSaving');
   saving.style.display='inline';
   try{
-    const res=await fetch(GAS_URL,{
+    await fetch(GAS_URL,{
       method:'POST',
+      mode:'no-cors',
       body:JSON.stringify({type:'kyugyo',action:'delete',date,password:ADMIN_PW})
     });
+    await new Promise(r=>setTimeout(r,1200));
     await kyugyoFetch();
   }catch(e){alert('通信エラーが発生しました')}
   saving.style.display='none';
