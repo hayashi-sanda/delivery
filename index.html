@@ -467,7 +467,7 @@ async function kyugyoAdd(){
   try{
     const res=await fetch(GAS_URL,{
       method:'POST',
-      body:JSON.stringify({action:'add',date,memo:memoInput.value.trim(),password:ADMIN_PW})
+      body:JSON.stringify({type:'kyugyo',action:'add',date,memo:memoInput.value.trim(),password:ADMIN_PW})
     });
     const result=await res.json();
     if(result.ok){
@@ -487,7 +487,7 @@ async function kyugyoDelete(date){
   try{
     const res=await fetch(GAS_URL,{
       method:'POST',
-      body:JSON.stringify({action:'delete',date,password:ADMIN_PW})
+      body:JSON.stringify({type:'kyugyo',action:'delete',date,password:ADMIN_PW})
     });
     await kyugyoFetch();
   }catch(e){alert('通信エラーが発生しました')}
