@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>求人募集｜仕出しはやし（三田市）調理・配達・事務スタッフ募集</title>
+  <link rel="icon" type="image/jpeg" href="rogo.jpg">
+  <meta name="description" content="仕出しはやし（兵庫県三田市）では調理場スタッフ・配達スタッフ・事務スタッフを募集しています。地域に根ざした食の仕事です。お気軽にお問い合わせください。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Shippori+Mincho+B1:wght@400;700&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --ink:#1a1208;--cream:#f6f1e9;--warm:#fbf8f2;
+      --gold:#b08828;--goldl:#cfa840;
+      --rust:#7e3020;--stone:#6a5c4e;--mist:#e4dcd0;--dark:#18110a;
+      --green:#1e4d2b;--navy:#1a2a4e;
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--warm);color:var(--ink);font-family:'Noto Serif JP',serif;line-height:1.9}
+
+    /* ── HEADER ── */
+    header{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 44px;height:70px;background:rgba(251,248,242,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--mist);box-shadow:0 2px 16px rgba(0,0,0,.05)}
+    .logo{text-decoration:none;display:flex;flex-direction:column;gap:1px}
+    .logo-main{font-family:'Zen Old Mincho',serif;font-size:21px;font-weight:700;letter-spacing:.25em;color:var(--rust);line-height:1}
+    .logo-main span{color:var(--gold)}
+    .logo-rule{width:100%;height:1px;background:linear-gradient(to right,var(--gold),transparent);margin:2px 0}
+    .logo-sub{font-size:9.5px;letter-spacing:.35em;color:var(--stone)}
+    nav{display:flex;align-items:center;gap:18px}
+    nav a{text-decoration:none;font-size:11.5px;letter-spacing:.08em;color:var(--stone);transition:color .3s}
+    nav a:hover,nav a.active{color:var(--rust)}
+    .nav-tel{font-family:'Shippori Mincho B1',serif;font-size:17px;font-weight:700;color:var(--rust);border-left:1px solid var(--mist);padding-left:22px}
+    .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .sp-nav{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(251,248,242,.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--mist);z-index:150;padding:8px 0 16px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .sp-nav a{display:block;padding:14px 24px;text-decoration:none;font-size:14px;letter-spacing:.15em;color:var(--stone);border-bottom:1px solid var(--mist)}
+    .sp-nav .sp-tel{display:block;padding:16px 24px 8px;font-family:'Shippori Mincho B1',serif;font-size:22px;font-weight:700;color:var(--rust)}
+
+    /* ── HERO ── */
+    .hero{margin-top:70px;min-height:520px;background:linear-gradient(135deg,#0a0e1a 0%,#1a1206 40%,#2e1608 70%,#0a0e1a 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:60px 24px}
+    .hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3l2-2M0 2l1-1M3 4l1-1' stroke='%23ffffff' stroke-opacity='0.03' stroke-width='1'/%3E%3C/svg%3E");pointer-events:none}
+    .hero::after{content:'';position:absolute;top:32px;left:48px;right:48px;bottom:32px;border:1px solid rgba(176,136,40,.2);pointer-events:none}
+    .hero-inner{position:relative;z-index:2;text-align:center;color:white;max-width:700px}
+    .hero-catch{font-size:11px;letter-spacing:.5em;color:var(--goldl);border:1px solid rgba(176,136,40,.5);padding:5px 20px;display:inline-block;margin-bottom:28px}
+    .hero-title{font-family:'Zen Old Mincho',serif;font-size:clamp(28px,5vw,54px);font-weight:400;letter-spacing:.12em;line-height:1.55;margin-bottom:24px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+    .hero-title em{color:var(--goldl);font-style:normal}
+    .hero-sub{font-size:14px;letter-spacing:.2em;color:rgba(255,255,255,.65);line-height:2;margin-bottom:36px}
+    .hero-badge-wrap{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .hero-badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:12px;letter-spacing:.15em;padding:7px 20px}
+
+    /* ── APPEAL STRIP ── */
+    .appeal-strip{background:var(--rust);display:grid;grid-template-columns:repeat(3,1fr)}
+    .appeal-item{text-align:center;color:white;padding:32px 24px;border-right:1px solid rgba(255,255,255,.15)}
+    .appeal-item:last-child{border-right:none}
+    .appeal-icon{font-size:28px;margin-bottom:10px}
+    .appeal-title{font-family:'Zen Old Mincho',serif;font-size:16px;letter-spacing:.12em;margin-bottom:8px}
+    .appeal-desc{font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.8}
+
+    /* ── SECTION ── */
+    .section{padding:72px 48px}
+    .section-header{text-align:center;margin-bottom:48px}
+    .section-en{display:block;font-size:10px;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+    .section-jp{font-family:'Zen Old Mincho',serif;font-size:clamp(20px,2.8vw,28px);font-weight:400;letter-spacing:.12em}
+    .section-rule{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:14px}
+    .section-rule::before,.section-rule::after{content:'';width:50px;height:1px;background:var(--gold)}
+    .section-rule span{color:var(--gold)}
+
+    /* ── JOB CARDS ── */
+    .jobs-section{background:var(--cream)}
+    .jobs-wrap{max-width:860px;margin:0 auto}
+    .jobs-empty{text-align:center;padding:48px;color:var(--stone);font-size:14px;line-height:2}
+    .job-card{background:white;border:1px solid var(--mist);margin-bottom:20px;overflow:hidden;transition:box-shadow .3s}
+    .job-card:hover{box-shadow:0 8px 36px rgba(0,0,0,.09)}
+    .job-card.inactive{opacity:.4;border-style:dashed}
+    .job-card-header{display:flex;align-items:center;gap:14px;padding:20px 24px 16px;flex-wrap:wrap}
+    .job-badge{font-size:11px;letter-spacing:.2em;padding:5px 16px;font-family:'Zen Old Mincho',serif;white-space:nowrap;flex-shrink:0}
+    .badge-調理場{background:var(--rust);color:white}
+    .badge-配達{background:var(--green);color:white}
+    .badge-事務{background:var(--navy);color:white}
+    .badge-その他{background:var(--stone);color:white}
+    .job-title{font-family:'Zen Old Mincho',serif;font-size:19px;letter-spacing:.08em;flex:1;line-height:1.4}
+    .job-inactive-tag{font-size:11px;color:var(--stone);border:1px solid var(--mist);padding:2px 10px;letter-spacing:.1em;flex-shrink:0}
+    .job-body{padding:0 24px 8px}
+    .job-desc{font-size:13.5px;line-height:2.1;color:var(--stone);margin-bottom:16px;white-space:pre-wrap}
+    .job-cond-wrap{background:var(--cream);border-left:3px solid var(--gold);padding:14px 18px;margin-bottom:16px}
+    .job-cond-label{font-size:10px;letter-spacing:.35em;color:var(--gold);margin-bottom:6px}
+    .job-cond-text{font-size:13px;line-height:2;color:var(--stone);white-space:pre-wrap}
+    .job-apply-btn{display:inline-block;background:var(--dark);color:white;text-decoration:none;font-size:12px;letter-spacing:.2em;padding:10px 28px;margin:0 0 20px 0;transition:background .3s}
+    .job-apply-btn:hover{background:var(--rust)}
+
+    /* 管理ボタン */
+    .admin-btns{display:none;padding:12px 24px;border-top:1px dashed var(--mist);background:#fffdf8;gap:8px;align-items:center}
+    body.is-admin .admin-btns{display:flex}
+    .abtn{font-size:12px;padding:6px 16px;cursor:pointer;font-family:'Noto Serif JP',serif;letter-spacing:.08em;border:none;transition:all .2s}
+    .abtn-toggle{background:none;border:1px solid var(--mist);color:var(--stone)}
+    .abtn-toggle:hover{border-color:var(--gold);color:var(--gold)}
+    .abtn-edit{background:var(--dark);color:white}
+    .abtn-edit:hover{background:var(--rust)}
+    .abtn-del{background:none;border:1px solid #e8c0b0;color:#b06050}
+    .abtn-del:hover{background:#fef0ee;border-color:var(--rust);color:var(--rust)}
+
+    /* ── 管理ツールバー ── */
+    .admin-bar{display:none;position:sticky;top:70px;z-index:100;background:var(--rust);color:white;text-align:center;padding:10px 16px;font-size:13px;letter-spacing:.1em}
+    body.is-admin .admin-bar{display:block}
+    .admin-bar button{background:white;color:var(--rust);border:none;padding:5px 18px;font-size:12px;letter-spacing:.1em;cursor:pointer;font-family:'Noto Serif JP',serif;margin-left:12px}
+
+    /* ── 追加フォーム ── */
+    .add-form-wrap{display:none;max-width:860px;margin:0 auto 32px;background:white;border:2px solid var(--rust);padding:28px 28px 20px}
+    body.is-admin .add-form-wrap{display:block}
+    .add-form-wrap h3{font-family:'Zen Old Mincho',serif;font-size:15px;letter-spacing:.15em;color:var(--rust);margin-bottom:18px}
+    .frow{margin-bottom:12px}
+    .frow label{display:block;font-size:11px;letter-spacing:.15em;color:var(--stone);margin-bottom:3px}
+    .frow select,.frow input,.frow textarea{width:100%;border:1px solid var(--mist);padding:8px 12px;font-family:'Noto Serif JP',serif;font-size:13px;color:var(--ink);background:white;outline:none}
+    .frow select:focus,.frow input:focus,.frow textarea:focus{border-color:var(--gold)}
+    .frow textarea{resize:vertical;min-height:72px}
+    .frow-btns{display:flex;gap:10px;margin-top:14px}
+    .frow-btns .btn-add{background:var(--rust);color:white;border:none;padding:9px 26px;font-size:13px;letter-spacing:.1em;cursor:pointer;font-family:'Noto Serif JP',serif}
+    .frow-btns .btn-add:hover{background:#5a2015}
+    .frow-btns .btn-clr{background:none;border:1px solid var(--mist);color:var(--stone);padding:8px 18px;font-size:13px;cursor:pointer;font-family:'Noto Serif JP',serif}
+
+    /* ── VOICE ── */
+    .voice-section{background:var(--warm)}
+    .voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:860px;margin:0 auto}
+    .voice-card{background:white;border:1px solid var(--mist);padding:24px 20px}
+    .voice-cat{font-size:10px;letter-spacing:.3em;color:var(--gold);margin-bottom:10px}
+    .voice-text{font-size:13px;line-height:2;color:var(--stone);margin-bottom:14px}
+    .voice-author{font-size:12px;color:var(--stone);text-align:right}
+
+    /* ── COMPANY INFO ── */
+    .info-section{background:var(--cream)}
+    .info-table{max-width:700px;margin:0 auto;border-collapse:collapse;width:100%}
+    .info-table tr{border-bottom:1px solid var(--mist)}
+    .info-table th{width:160px;font-size:13px;letter-spacing:.1em;color:var(--stone);font-weight:400;padding:16px 0;vertical-align:top;text-align:left}
+    .info-table td{font-size:13.5px;padding:16px 0;line-height:1.9;color:var(--ink)}
+
+    /* ── CTA ── */
+    .cta-section{background:var(--dark);padding:72px 48px;text-align:center}
+    .cta-section p{color:rgba(255,255,255,.7);font-size:14px;line-height:2.2;margin-bottom:28px}
+    .cta-tel{font-family:'Shippori Mincho B1',serif;font-size:clamp(32px,5vw,50px);font-weight:700;color:var(--goldl);letter-spacing:.05em;display:block;margin-bottom:6px}
+    .cta-free{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.2em;margin-bottom:28px}
+    .cta-line{display:inline-flex;align-items:center;gap:10px;background:#06c755;color:white;text-decoration:none;font-size:13px;letter-spacing:.15em;padding:12px 32px;transition:opacity .3s}
+    .cta-line:hover{opacity:.85}
+
+    footer{background:var(--dark);padding:40px 48px 24px;color:rgba(255,255,255,.5);text-align:center}
+    .footer-logo{font-family:'Zen Old Mincho',serif;font-size:20px;letter-spacing:.25em;color:var(--goldl);margin-bottom:10px}
+    .footer-addr{font-size:12px;line-height:2.1;margin-bottom:14px}
+    .footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:14px}
+    .footer-nav a{text-decoration:none;font-size:12px;letter-spacing:.15em;color:rgba(255,255,255,.5);transition:color .3s}
+    .footer-nav a:hover{color:var(--goldl)}
+    .footer-copy{font-size:11px;letter-spacing:.15em}
+    .admin-link{font-size:10px;color:rgba(255,255,255,.12);cursor:pointer;user-select:none;margin-left:8px;transition:color .3s}
+    .admin-link:hover{color:rgba(255,255,255,.35)}
+
+    .page-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--gold);color:white;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s,background .3s;z-index:300}
+    .page-top.visible{opacity:1;transform:translateY(0)}
+    .page-top:hover{background:var(--rust)}
+
+    /* モーダル共通 */
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:600;align-items:center;justify-content:center;padding:20px}
+    .modal.open{display:flex}
+    .modal-box{background:white;padding:32px 36px;max-width:420px;width:100%;text-align:center}
+    .modal-box.wide{max-width:600px;text-align:left;max-height:90vh;overflow-y:auto}
+    .modal-box h3{font-family:'Zen Old Mincho',serif;font-size:16px;letter-spacing:.15em;margin-bottom:20px;color:var(--ink)}
+    .modal-box.wide h3{color:var(--rust)}
+    .modal-box input[type=password]{border:1px solid var(--mist);padding:9px 14px;font-size:14px;width:100%;margin-bottom:10px;outline:none;font-family:'Noto Serif JP',serif}
+    .modal-box input[type=password]:focus{border-color:var(--gold)}
+    .modal-error{color:var(--rust);font-size:12px;margin-top:4px;display:none}
+    .modal-cancel{display:inline-block;margin-left:12px;font-size:12px;color:var(--stone);cursor:pointer;text-decoration:underline}
+    .btn-login{background:var(--rust);color:white;border:none;padding:9px 28px;font-size:13px;letter-spacing:.1em;cursor:pointer;font-family:'Noto Serif JP',serif}
+    .btn-save{background:var(--rust);color:white;border:none;padding:9px 28px;font-size:13px;letter-spacing:.1em;cursor:pointer;font-family:'Noto Serif JP',serif;margin-top:14px}
+    .btn-cancel-modal{background:none;border:1px solid var(--mist);color:var(--stone);padding:8px 20px;font-size:13px;cursor:pointer;font-family:'Noto Serif JP',serif;margin-top:14px;margin-left:8px}
+
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.shown{opacity:1;transform:translateY(0)}
+
+    @media(max-width:860px){
+      header{padding:0 16px;height:60px}.logo-main{font-size:17px}
+      nav{display:none}.hamburger{display:flex!important}
+      .hero{min-height:380px;padding:40px 20px}.hero::after{top:14px;left:16px;right:16px;bottom:14px}
+      .appeal-strip{grid-template-columns:1fr}.appeal-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.15);padding:24px 20px}
+      .appeal-item:last-child{border-bottom:none}
+      .section{padding:48px 16px}
+      .voice-grid{grid-template-columns:1fr;gap:14px}
+      .info-table th{width:110px;font-size:12px}
+      .info-table td{font-size:12.5px}
+      .cta-section{padding:48px 20px}
+      footer{padding:32px 20px}
+      .add-form-wrap{padding:20px 16px}
+    }
+    @media(max-width:520px){
+      .job-title{font-size:16px}
+    }
+  </style>
+</head>
+<body id="top">
+
+<!-- 管理バー -->
+<div class="admin-bar" id="adminBar">
+  📋 管理者モード中　求人の追加・編集・表示切替ができます
+  <button onclick="exitAdmin()">終了</button>
+</div>
+
+<header>
+  <a href="index.html" class="logo">
+    <div class="logo-main"><span>仕</span>出し　はやし</div>
+    <div class="logo-rule"></div>
+    <div class="logo-sub">HAYASHI · SANDA · HYOGO</div>
+  </a>
+  <nav>
+    <a href="index.html">ホーム</a>
+    <a href="kaiseki.html">会席料理</a>
+    <a href="makunouchi.html">幕の内弁当</a>
+    <a href="kyushoku.html">給食弁当</a>
+    <a href="kyujin.html" class="active">求人</a>
+    <a href="contact.html">お問い合わせ</a>
+    <span class="nav-tel">0120-139-884</span>
+  </nav>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</header>
+
+<div class="sp-nav" id="spNav">
+  <span class="sp-tel">0120-139-884</span>
+  <a href="index.html">ホーム</a>
+  <a href="kaiseki.html">会席料理</a>
+  <a href="makunouchi.html">幕の内弁当</a>
+  <a href="kyushoku.html">給食弁当</a>
+  <a href="kyujin.html">求人</a>
+  <a href="contact.html">お問い合わせ</a>
+</div>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-catch">RECRUIT · 採用情報</div>
+    <h1 class="hero-title">
+      三田市の食を支える<br>
+      <em>はやし</em>で、<br>
+      一緒に働きませんか
+    </h1>
+    <p class="hero-sub">地域の企業・工場・家庭の食卓へ<br>毎日心を込めたお弁当をお届けしています</p>
+    <div class="hero-badge-wrap">
+      <span class="hero-badge">🍳 調理場スタッフ</span>
+      <span class="hero-badge">🚚 配達スタッフ</span>
+      <span class="hero-badge">📋 事務スタッフ</span>
+    </div>
+  </div>
+</div>
+
+<!-- アピールポイント -->
+<div class="appeal-strip">
+  <div class="appeal-item">
+    <div class="appeal-icon">🏠</div>
+    <div class="appeal-title">地域密着の職場</div>
+    <div class="appeal-desc">三田市に根ざして長年<br>地元のお客様に愛されています</div>
+  </div>
+  <div class="appeal-item">
+    <div class="appeal-icon">🕗</div>
+    <div class="appeal-title">働きやすい時間帯</div>
+    <div class="appeal-desc">朝から昼の時間帯が中心<br>主婦・シニアも活躍中</div>
+  </div>
+  <div class="appeal-item">
+    <div class="appeal-icon">👥</div>
+    <div class="appeal-title">アットホームな環境</div>
+    <div class="appeal-desc">小さなチームで<br>コミュニケーションを大切に</div>
+  </div>
+</div>
+
+<!-- 求人一覧 -->
+<section class="jobs-section section" id="jobs">
+  <div class="section-header reveal">
+    <span class="section-en">JOBS</span>
+    <h2 class="section-jp">募集中の求人</h2>
+    <div class="section-rule"><span>✦</span></div>
+  </div>
+
+  <!-- 管理者：追加フォーム -->
+  <div class="add-form-wrap" id="addFormWrap">
+    <h3>＋ 新しい求人を追加</h3>
+    <div class="frow">
+      <label>カテゴリ</label>
+      <select id="fCat">
+        <option value="調理場">調理場スタッフ</option>
+        <option value="配達">配達スタッフ</option>
+        <option value="事務">事務スタッフ</option>
+        <option value="その他">その他</option>
+      </select>
+    </div>
+    <div class="frow">
+      <label>求人タイトル</label>
+      <input type="text" id="fTitle" placeholder="例：調理補助スタッフ（パート）">
+    </div>
+    <div class="frow">
+      <label>仕事内容</label>
+      <textarea id="fBody" placeholder="仕事内容を入力"></textarea>
+    </div>
+    <div class="frow">
+      <label>勤務条件（時給・時間・曜日・休日など）</label>
+      <textarea id="fCond" placeholder="例：時給950円〜&#10;勤務時間：7:00〜13:00&#10;週3日〜OK・土日祝休み"></textarea>
+    </div>
+    <div class="frow-btns">
+      <button class="btn-add" onclick="addJob()">追加する</button>
+      <button class="btn-clr" onclick="clearForm()">クリア</button>
+    </div>
+  </div>
+
+  <!-- 求人カードリスト -->
+  <div class="jobs-wrap">
+    <p class="jobs-empty" id="jobsEmpty" style="display:none">現在、募集中の求人はありません。<br>お問い合わせはお電話にてどうぞ。</p>
+    <div id="jobsList"></div>
+  </div>
+</section>
+
+<!-- スタッフの声 -->
+<section class="voice-section section reveal">
+  <div class="section-header">
+    <span class="section-en">VOICE</span>
+    <h2 class="section-jp">スタッフの声</h2>
+    <div class="section-rule"><span>✦</span></div>
+  </div>
+  <div class="voice-grid">
+    <div class="voice-card">
+      <div class="voice-cat">調理場スタッフ</div>
+      <p class="voice-text">「子育て中でも働きやすい時間帯です。ランチ前に終わるので、お迎えにも間に合います。」</p>
+      <div class="voice-author">— 30代・女性</div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-cat">配達スタッフ</div>
+      <p class="voice-text">「三田市内の道も覚えられて、地域のつながりも感じられる仕事です。体を動かすのが好きな方に向いています。」</p>
+      <div class="voice-author">— 50代・男性</div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-cat">事務スタッフ</div>
+      <p class="voice-text">「少人数の職場なので、仕事の流れが見えやすく、やりがいを感じます。」</p>
+      <div class="voice-author">— 40代・女性</div>
+    </div>
+  </div>
+</section>
+
+<!-- 会社情報 -->
+<section class="info-section section reveal">
+  <div class="section-header">
+    <span class="section-en">COMPANY</span>
+    <h2 class="section-jp">会社情報</h2>
+    <div class="section-rule"><span>✦</span></div>
+  </div>
+  <table class="info-table">
+    <tr><th>会社名</th><td>株式会社はやし給食</td></tr>
+    <tr><th>事業内容</th><td>給食弁当配達・仕出し料理（会席料理・幕の内弁当）</td></tr>
+    <tr><th>所在地</th><td>〒669-1357　兵庫県三田市東本庄578-2</td></tr>
+    <tr><th>電話</th><td>0120-139-884 ／ 079-568-1011</td></tr>
+    <tr><th>営業時間</th><td>8:00〜18:00　年中無休</td></tr>
+    <tr><th>配達エリア</th><td>三田市・丹波篠山市・神戸市北区</td></tr>
+  </table>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <p>求人についてのご質問・ご応募は<br>お電話またはLINEにてお気軽にご連絡ください</p>
+  <span class="cta-tel">0120-139-884</span>
+  <p class="cta-free">受付時間 8:00〜18:00　年中無休</p>
+  <a href="https://lin.ee/1IJIjKw" target="_blank" rel="noopener" class="cta-line">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    LINEでお問い合わせ
+  </a>
+</section>
+
+<footer>
+  <div class="footer-logo">仕出し　はやし</div>
+  <div class="footer-addr">〒669-1357 兵庫県三田市東本庄578-2　TEL: 0120-139-884 ／ 079-568-1011</div>
+  <nav class="footer-nav">
+    <a href="index.html">ホーム</a>
+    <a href="kaiseki.html">会席料理</a>
+    <a href="makunouchi.html">幕の内弁当</a>
+    <a href="kyushoku.html">給食弁当</a>
+    <a href="kyujin.html">求人</a>
+    <a href="contact.html">お問い合わせ</a>
+  </nav>
+  <p class="footer-copy">© 株式会社はやし給食. All Rights Reserved.<span class="admin-link" onclick="openLogin()">●</span></p>
+</footer>
+
+<a href="#top" class="page-top" id="pageTop">▲</a>
+
+<!-- ログインモーダル -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <h3>管理者ログイン</h3>
+    <input type="password" id="loginPw" placeholder="パスワードを入力" onkeydown="if(event.key==='Enter')doLogin()">
+    <div class="modal-error" id="loginError">パスワードが違います</div>
+    <div style="margin-top:16px">
+      <button class="btn-login" onclick="doLogin()">ログイン</button>
+      <span class="modal-cancel" onclick="closeModal('loginModal')">キャンセル</span>
+    </div>
+  </div>
+</div>
+
+<!-- 編集モーダル -->
+<div class="modal" id="editModal">
+  <div class="modal-box wide">
+    <h3>求人を編集</h3>
+    <input type="hidden" id="editId">
+    <div class="frow"><label>カテゴリ</label>
+      <select id="editCat">
+        <option value="調理場">調理場スタッフ</option>
+        <option value="配達">配達スタッフ</option>
+        <option value="事務">事務スタッフ</option>
+        <option value="その他">その他</option>
+      </select>
+    </div>
+    <div class="frow"><label>求人タイトル</label><input type="text" id="editTitle"></div>
+    <div class="frow"><label>仕事内容</label><textarea id="editBody" style="min-height:90px"></textarea></div>
+    <div class="frow"><label>勤務条件</label><textarea id="editCond" style="min-height:72px"></textarea></div>
+    <div>
+      <button class="btn-save" onclick="saveEdit()">保存する</button>
+      <button class="btn-cancel-modal" onclick="closeModal('editModal')">キャンセル</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const GAS_URL  = 'https://script.google.com/macros/s/AKfycbykbIvLCnAs39q8CNjL62yJdbJ94Rw5phmvTZcfcAUjCNV3HiWcFdm3-_lmpL97uYZK/exec';
+const ADMIN_PW = 'hayashi1011';
+let allJobs = [];
+
+/* ── ハンバーガー ── */
+const hb=document.getElementById('hamburger'),sn=document.getElementById('spNav');
+sn.style.display='none';
+hb.addEventListener('click',()=>{hb.classList.toggle('open');sn.style.display=sn.style.display==='block'?'none':'block'});
+
+/* ── ページトップ ── */
+window.addEventListener('scroll',()=>document.getElementById('pageTop').classList.toggle('visible',scrollY>300));
+
+/* ── Reveal ── */
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('shown');obs.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── 求人取得 ── */
+async function fetchJobs(){
+  try{
+    const r=await fetch(GAS_URL+'?type=kyujin');
+    allJobs=await r.json();
+  }catch{allJobs=[]}
+  renderJobs();
+}
+
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+function renderJobs(){
+  const isAdmin=document.body.classList.contains('is-admin');
+  const list=document.getElementById('jobsList');
+  const empty=document.getElementById('jobsEmpty');
+  const visible=isAdmin?allJobs:allJobs.filter(j=>j.active);
+  list.innerHTML='';
+  if(visible.length===0){empty.style.display='block';return}
+  empty.style.display='none';
+  visible.forEach(j=>{
+    const div=document.createElement('div');
+    div.className='job-card'+(j.active?'':' inactive');
+    div.innerHTML=`
+      <div class="job-card-header">
+        <span class="job-badge badge-${esc(j.category)}">${esc(j.category)}</span>
+        <span class="job-title">${esc(j.title)}</span>
+        ${!j.active?'<span class="job-inactive-tag">非表示中</span>':''}
+      </div>
+      <div class="job-body">
+        <div class="job-desc">${esc(j.body)}</div>
+        ${j.condition?`<div class="job-cond-label">勤務条件</div><div class="job-cond-wrap"><div class="job-cond-text">${esc(j.condition)}</div></div>`:''}
+        ${j.active?`<a href="#cta" class="job-apply-btn">この求人に応募する →</a>`:''}
+      </div>
+      <div class="admin-btns">
+        <button class="abtn abtn-toggle" onclick="toggleJob('${j.id}')">${j.active?'非表示にする':'表示する'}</button>
+        <button class="abtn abtn-edit" onclick="openEdit('${j.id}')">編集</button>
+        <button class="abtn abtn-del" onclick="deleteJob('${j.id}')">削除</button>
+      </div>`;
+    list.appendChild(div);
+  });
+}
+
+/* ── 追加 ── */
+async function addJob(){
+  const cat=document.getElementById('fCat').value;
+  const title=document.getElementById('fTitle').value.trim();
+  const body=document.getElementById('fBody').value.trim();
+  const cond=document.getElementById('fCond').value.trim();
+  if(!title||!body){alert('タイトルと仕事内容は必須です');return}
+  try{
+    const r=await fetch(GAS_URL,{method:'POST',body:JSON.stringify({type:'kyujin',action:'add',category:cat,title,body,condition:cond,password:ADMIN_PW})});
+    const res=await r.json();
+    if(res.ok){clearForm();fetchJobs();}else alert('エラー:'+res.error);
+  }catch{alert('通信エラー')}
+}
+function clearForm(){
+  ['fTitle','fBody','fCond'].forEach(id=>document.getElementById(id).value='');
+}
+
+/* ── 表示切替 ── */
+async function toggleJob(id){
+  await fetch(GAS_URL,{method:'POST',body:JSON.stringify({type:'kyujin',action:'toggle',id,password:ADMIN_PW})});
+  fetchJobs();
+}
+
+/* ── 削除 ── */
+async function deleteJob(id){
+  if(!confirm('この求人を削除しますか？'))return;
+  await fetch(GAS_URL,{method:'POST',body:JSON.stringify({type:'kyujin',action:'delete',id,password:ADMIN_PW})});
+  fetchJobs();
+}
+
+/* ── 編集 ── */
+function openEdit(id){
+  const j=allJobs.find(x=>x.id===id);if(!j)return;
+  document.getElementById('editId').value=id;
+  document.getElementById('editCat').value=j.category;
+  document.getElementById('editTitle').value=j.title;
+  document.getElementById('editBody').value=j.body;
+  document.getElementById('editCond').value=j.condition||'';
+  document.getElementById('editModal').classList.add('open');
+}
+async function saveEdit(){
+  const id=document.getElementById('editId').value;
+  const cat=document.getElementById('editCat').value;
+  const title=document.getElementById('editTitle').value.trim();
+  const body=document.getElementById('editBody').value.trim();
+  const cond=document.getElementById('editCond').value.trim();
+  if(!title||!body){alert('タイトルと仕事内容は必須です');return}
+  try{
+    const r=await fetch(GAS_URL,{method:'POST',body:JSON.stringify({type:'kyujin',action:'edit',id,category:cat,title,body,condition:cond,password:ADMIN_PW})});
+    const res=await r.json();
+    if(res.ok){closeModal('editModal');fetchJobs();}else alert('エラー:'+res.error);
+  }catch{alert('通信エラー')}
+}
+
+/* ── ログイン ── */
+function openLogin(){
+  document.getElementById('loginPw').value='';
+  document.getElementById('loginError').style.display='none';
+  document.getElementById('loginModal').classList.add('open');
+  setTimeout(()=>document.getElementById('loginPw').focus(),100);
+}
+function doLogin(){
+  if(document.getElementById('loginPw').value===ADMIN_PW){
+    closeModal('loginModal');
+    document.body.classList.add('is-admin');
+    renderJobs();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }else{
+    document.getElementById('loginError').style.display='block';
+    document.getElementById('loginPw').value='';
+  }
+}
+function exitAdmin(){document.body.classList.remove('is-admin');renderJobs()}
+function closeModal(id){document.getElementById(id).classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal('loginModal');closeModal('editModal')}});
+
+fetchJobs();
+</script>
+</body>
+</html>
