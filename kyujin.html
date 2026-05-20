@@ -358,7 +358,7 @@
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
+<section class="cta-section" id="oubo">
   <p>求人についてのご質問・ご応募は<br>お電話またはLINEにてお気軽にご連絡ください</p>
   <span class="cta-tel">0120-139-884</span>
   <p class="cta-free">受付時間 8:00〜18:00　年中無休</p>
@@ -468,7 +468,7 @@ function renderJobs(){
       <div class="job-body">
         <div class="job-desc">${esc(j.body)}</div>
         ${j.condition?`<div class="job-cond-label">勤務条件</div><div class="job-cond-wrap"><div class="job-cond-text">${esc(j.condition)}</div></div>`:''}
-        ${j.active?`<a href="#cta" class="job-apply-btn">この求人に応募する →</a>`:''}
+        ${j.active?`<a href="#oubo" class="job-apply-btn">この求人に応募する →</a>`:''}
       </div>
       <div class="admin-btns">
         <button class="abtn abtn-toggle" onclick="toggleJob('${j.id}')">${j.active?'非表示にする':'表示する'}</button>
