@@ -355,7 +355,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove(
 
 /* 印刷 */
 function printKondate(){
-  const imgs=document.querySelectorAll('#kondate-grid img');
+  const imgs=document.querySelectorAll('#wrap-kondate1 img, #wrap-kondate2 img, #wrap-kondate3 img, #wrap-kondate4 img');
   let html='<html><head><title>今月の献立</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:white}.page{width:210mm;height:297mm;display:flex;align-items:center;justify-content:center;page-break-after:always}.page:last-child{page-break-after:avoid}img{max-width:200mm;max-height:287mm;object-fit:contain}@page{size:A4;margin:0}</style></head><body>';
   imgs.forEach(img=>{html+=`<div class="page"><img src="${img.src}"></div>`});
   html+='</body></html>';
