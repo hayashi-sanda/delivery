@@ -92,8 +92,6 @@
     .footer-nav a{text-decoration:none;font-size:12px;letter-spacing:.15em;color:rgba(255,255,255,.5);transition:color .3s}
     .footer-nav a:hover{color:var(--goldl)}
     .footer-copy{font-size:11px;letter-spacing:.15em}
-    .admin-footer-link{font-size:10px;color:rgba(255,255,255,.12);cursor:pointer;user-select:none;margin-left:8px;transition:color .3s}
-    .admin-footer-link:hover{color:rgba(255,255,255,.35)}
 
     .page-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--gold);color:white;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transform:translateY(12px);transition:opacity .3s,transform .3s,background .3s;z-index:300}
     .page-top.visible{opacity:1;transform:translateY(0)}
@@ -125,31 +123,6 @@
     .menu-ex-body{padding:20px 20px 24px}
     .menu-ex-name{font-family:'Zen Old Mincho',serif;font-size:17px;letter-spacing:.1em;margin-bottom:8px}
     .menu-ex-desc{font-size:12.5px;line-height:1.9;color:var(--stone)}
-
-    /* 管理者アップロードバー */
-    .admin-bar{display:none;padding:10px 14px;border-top:1px dashed #e8c0b0;background:#fff8f2;gap:8px;align-items:center;flex-wrap:wrap}
-    body.img-admin .admin-bar{display:flex}
-    .admin-bar label.upload-btn{display:inline-block;background:var(--dark);color:white;font-size:12px;letter-spacing:.15em;padding:7px 16px;cursor:pointer;transition:background .3s;font-family:'Noto Serif JP',serif}
-    .admin-bar label.upload-btn:hover{background:var(--rust)}
-    .admin-bar input[type="file"]{display:none}
-    .admin-bar .delete-btn{background:none;border:1px solid var(--mist);color:var(--stone);font-size:12px;padding:6px 12px;cursor:pointer;transition:border-color .3s,color .3s;font-family:'Noto Serif JP',serif}
-    .admin-bar .delete-btn:hover{border-color:var(--rust);color:var(--rust)}
-    .admin-exit-bar{display:none;position:fixed;top:70px;left:0;right:0;z-index:190;background:var(--rust);color:white;text-align:center;padding:8px;font-size:13px;letter-spacing:.1em}
-    body.img-admin .admin-exit-bar{display:block}
-    .admin-exit-bar button{background:none;border:1px solid rgba(255,255,255,.5);color:white;font-size:12px;padding:4px 16px;cursor:pointer;margin-left:16px;font-family:'Noto Serif JP',serif;letter-spacing:.1em;transition:background .2s}
-    .admin-exit-bar button:hover{background:rgba(255,255,255,.2)}
-
-    /* 管理者パスワードモーダル */
-    .admin-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:500;align-items:center;justify-content:center}
-    .admin-modal.open{display:flex}
-    .admin-modal-box{background:white;padding:36px 40px;max-width:340px;width:90%;text-align:center}
-    .admin-modal-box h3{font-family:'Zen Old Mincho',serif;font-size:16px;letter-spacing:.15em;margin-bottom:20px;color:var(--ink)}
-    .admin-modal-box input{border:1px solid var(--mist);padding:9px 14px;font-size:14px;width:100%;margin-bottom:12px;outline:none;font-family:'Noto Serif JP',serif}
-    .admin-modal-box input:focus{border-color:var(--gold)}
-    .admin-modal-box button{background:var(--rust);color:white;border:none;padding:9px 28px;font-size:13px;letter-spacing:.1em;cursor:pointer;font-family:'Noto Serif JP',serif;transition:background .2s}
-    .admin-modal-box button:hover{background:#5a2015}
-    .admin-modal-error{color:var(--rust);font-size:12px;margin-top:6px;display:none}
-    .admin-modal-cancel{display:inline-block;margin-left:10px;font-size:12px;color:var(--stone);cursor:pointer;text-decoration:underline}
 
     /* ライトボックス */
     .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:1000;align-items:center;justify-content:center;cursor:zoom-out}
@@ -183,12 +156,6 @@
   </style>
 </head>
 <body id="top">
-
-<!-- 管理者モード帯 -->
-<div class="admin-exit-bar">
-  📷 画像管理モード中　各画像の下にある「画像を変更」ボタンで写真を差し替えできます
-  <button onclick="exitAdmin()">終了</button>
-</div>
 
 <header>
   <a href="index.html" class="logo">
@@ -258,35 +225,18 @@
       <button onclick="printKondate()" style="background:var(--dark);color:white;border:none;padding:10px 24px;font-family:'Noto Serif JP',serif;font-size:13px;letter-spacing:.2em;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .3s;" onmouseover="this.style.background='var(--rust)'" onmouseout="this.style.background='var(--dark)'">🖨️ 印刷する</button>
     </div>
     <div class="schedule-box">
-      <div class="kondate-grid" id="kondateGrid">
-        <!-- 献立1〜4 -->
-        <div class="kondate-cell" id="cell-kondate1">
+      <div class="kondate-grid">
+        <div class="kondate-cell">
           <div class="kondate-cell-img" id="wrap-kondate1"></div>
-          <div class="admin-bar">
-            <label class="upload-btn">📷 画像を変更<input type="file" accept="image/*" onchange="uploadImg('kondate1',this)"></label>
-            <button class="delete-btn" onclick="deleteImg('kondate1')">削除</button>
-          </div>
         </div>
-        <div class="kondate-cell" id="cell-kondate2">
+        <div class="kondate-cell">
           <div class="kondate-cell-img" id="wrap-kondate2"></div>
-          <div class="admin-bar">
-            <label class="upload-btn">📷 画像を変更<input type="file" accept="image/*" onchange="uploadImg('kondate2',this)"></label>
-            <button class="delete-btn" onclick="deleteImg('kondate2')">削除</button>
-          </div>
         </div>
-        <div class="kondate-cell" id="cell-kondate3">
+        <div class="kondate-cell">
           <div class="kondate-cell-img" id="wrap-kondate3"></div>
-          <div class="admin-bar">
-            <label class="upload-btn">📷 画像を変更<input type="file" accept="image/*" onchange="uploadImg('kondate3',this)"></label>
-            <button class="delete-btn" onclick="deleteImg('kondate3')">削除</button>
-          </div>
         </div>
-        <div class="kondate-cell" id="cell-kondate4">
+        <div class="kondate-cell">
           <div class="kondate-cell-img" id="wrap-kondate4"></div>
-          <div class="admin-bar">
-            <label class="upload-btn">📷 画像を変更<input type="file" accept="image/*" onchange="uploadImg('kondate4',this)"></label>
-            <button class="delete-btn" onclick="deleteImg('kondate4')">削除</button>
-          </div>
         </div>
       </div>
     </div>
@@ -296,35 +246,22 @@
   <div class="menu-section reveal" id="menurei">
     <h2>メニュー例</h2>
     <div class="menu-ex-grid">
-
-      <!-- オリジナル -->
       <div class="menu-ex-card">
         <div class="menu-ex-badge original">オリジナル</div>
         <div class="menu-ex-img-wrap" id="wrap-original"></div>
-        <div class="admin-bar">
-          <label class="upload-btn">📷 画像を変更<input type="file" accept="image/*" onchange="uploadImg('original',this)"></label>
-          <button class="delete-btn" onclick="deleteImg('original')">削除</button>
-        </div>
         <div class="menu-ex-body">
           <div class="menu-ex-name">オリジナル弁当</div>
           <div class="menu-ex-desc">ご飯・メイン・副菜３品の基本セット。毎日飽きないよう週替わりで献立を変えています。</div>
         </div>
       </div>
-
-      <!-- スペシャル -->
       <div class="menu-ex-card">
         <div class="menu-ex-badge special">スペシャル</div>
         <div class="menu-ex-img-wrap" id="wrap-special"></div>
-        <div class="admin-bar">
-          <label class="upload-btn">📷 画像を変更<input type="file" accept="image/*" onchange="uploadImg('special',this)"></label>
-          <button class="delete-btn" onclick="deleteImg('special')">削除</button>
-        </div>
         <div class="menu-ex-body">
           <div class="menu-ex-name">スペシャル弁当</div>
           <div class="menu-ex-desc">ご飯・メイン・副菜４品の豪華版。季節の食材を使った特別メニューです。</div>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -384,10 +321,7 @@
     <a href="makunouchi.html">幕の内弁当</a>
     <a href="kyushoku.html">給食弁当</a>
   </nav>
-  <p class="footer-copy">
-    © 株式会社はやし給食. All Rights Reserved.
-    <span class="admin-footer-link" onclick="openAdminModal()">●</span>
-  </p>
+  <p class="footer-copy">© 株式会社はやし給食. All Rights Reserved.</p>
 </footer>
 
 <a href="#top" class="page-top" id="pageTop">▲</a>
@@ -396,19 +330,6 @@
 <div class="lightbox" id="lightbox">
   <span class="lightbox-close" id="lbClose">✕</span>
   <img id="lbImg" src="" alt="">
-</div>
-
-<!-- 管理者パスワードモーダル -->
-<div class="admin-modal" id="adminModal">
-  <div class="admin-modal-box">
-    <h3>管理者ログイン</h3>
-    <input type="password" id="adminPw" placeholder="パスワードを入力" onkeydown="if(event.key==='Enter')adminLogin()">
-    <div class="admin-modal-error" id="adminError">パスワードが違います</div>
-    <div style="margin-top:16px;">
-      <button onclick="adminLogin()">ログイン</button>
-      <span class="admin-modal-cancel" onclick="closeAdminModal()">キャンセル</span>
-    </div>
-  </div>
 </div>
 
 <script>
@@ -430,101 +351,50 @@ function openLb(src){document.getElementById('lbImg').src=src;document.getElemen
 const lb=document.getElementById('lightbox');
 document.getElementById('lbClose').addEventListener('click',()=>lb.classList.remove('open'));
 lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open')});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){lb.classList.remove('open');closeAdminModal()}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
 
 /* 印刷 */
 function printKondate(){
-  const imgs=document.querySelectorAll('#kondateGrid img');
+  const imgs=document.querySelectorAll('#kondate-grid img');
   let html='<html><head><title>今月の献立</title><style>*{margin:0;padding:0;box-sizing:border-box}body{background:white}.page{width:210mm;height:297mm;display:flex;align-items:center;justify-content:center;page-break-after:always}.page:last-child{page-break-after:avoid}img{max-width:200mm;max-height:287mm;object-fit:contain}@page{size:A4;margin:0}</style></head><body>';
-  imgs.forEach(img=>{if(img.src&&img.naturalWidth>0)html+=`<div class="page"><img src="${img.src}"></div>`});
+  imgs.forEach(img=>{html+=`<div class="page"><img src="${img.src}"></div>`});
   html+='</body></html>';
   const w=window.open('','_blank');w.document.write(html);w.document.close();w.onload=()=>w.print();
 }
 
-/* ══ 画像管理システム ══ */
-const ADMIN_PW='hayashi1011';
-const IMG_PREFIX='hayashi_kyushoku_img_';
+/* ══ 画像表示（GitHubファイルを直接参照）══ */
+const IMGS = {
+  'kondate1': 'kondate1.jpg',
+  'kondate2': 'kondate2.jpg',
+  'kondate3': 'kondate3.jpg',
+  'kondate4': 'kondate4.jpg',
+  'original': 'original.jpg',
+  'special':  'special.jpg',
+};
+const LABELS = {kondate1:'献立①',kondate2:'献立②',kondate3:'献立③',kondate4:'献立④',original:'オリジナル弁当',special:'スペシャル弁当'};
 
-const IMG_KEYS=['kondate1','kondate2','kondate3','kondate4','original','special'];
-const LABELS={kondate1:'献立①',kondate2:'献立②',kondate3:'献立③',kondate4:'献立④',original:'オリジナル弁当',special:'スペシャル弁当'};
-
-function renderImg(key){
-  const wrap=document.getElementById('wrap-'+key);
-  if(!wrap)return;
-  const src=localStorage.getItem(IMG_PREFIX+key);
-  if(src){
-    wrap.innerHTML=`<img src="${src}" alt="${LABELS[key]}" onclick="openLb(this.src)">`;
-  }else{
-    wrap.innerHTML=`<div class="${key.startsWith('kondate')?'kondate-placeholder':'menu-ex-placeholder'}"><div class="pi" style="font-size:36px;margin-bottom:8px">${key.startsWith('kondate')?'📅':'🍱'}</div><div class="pt" style="font-size:12px;letter-spacing:.1em">準備中</div></div>`;
-  }
-}
-
-function uploadImg(key,input){
-  const file=input.files[0];
-  if(!file)return;
-  const reader=new FileReader();
-  reader.onload=e=>{
-    const img=new Image();
-    img.onload=()=>{
-      // 最大幅1200pxに縮小、品質0.75でJPEG圧縮
-      const MAX=1200;
-      let w=img.width, h=img.height;
-      if(w>MAX){h=Math.round(h*MAX/w);w=MAX;}
-      const canvas=document.createElement('canvas');
-      canvas.width=w; canvas.height=h;
-      canvas.getContext('2d').drawImage(img,0,0,w,h);
-      const compressed=canvas.toDataURL('image/jpeg',0.75);
-      try{
-        localStorage.setItem(IMG_PREFIX+key,compressed);
-        renderImg(key);
-      }catch(err){
-        // それでも入らない場合はさらに圧縮
-        const compressed2=canvas.toDataURL('image/jpeg',0.5);
-        try{
-          localStorage.setItem(IMG_PREFIX+key,compressed2);
-          renderImg(key);
-        }catch(err2){
-          alert('容量不足のため保存できませんでした。\n他の画像を削除してから再試行してください。');
-        }
-      }
-    };
-    img.src=e.target.result;
+function renderImg(key) {
+  const wrap = document.getElementById('wrap-' + key);
+  if (!wrap) return;
+  const filename = IMGS[key];
+  const isKondate = key.startsWith('kondate');
+  // 画像が存在するか試みる（存在しなければプレースホルダー）
+  const img = document.createElement('img');
+  img.alt = LABELS[key];
+  img.style.width = '100%';
+  img.style.height = 'auto';
+  img.style.display = 'block';
+  img.style.cursor = 'zoom-in';
+  img.onclick = function(){ openLb(this.src); };
+  img.onerror = function(){
+    wrap.innerHTML = `<div class="${isKondate?'kondate-placeholder':'menu-ex-placeholder'}"><div class="pi">${isKondate?'📅':'🍱'}</div><div class="pt">準備中</div></div>`;
   };
-  reader.readAsDataURL(file);
-  input.value='';
+  img.src = filename;
+  wrap.innerHTML = '';
+  wrap.appendChild(img);
 }
 
-function deleteImg(key){
-  if(!confirm(`「${LABELS[key]}」の画像を削除しますか？`))return;
-  localStorage.removeItem(IMG_PREFIX+key);
-  renderImg(key);
-}
-
-function exitAdmin(){document.body.classList.remove('img-admin')}
-
-/* 管理者ログイン */
-function openAdminModal(){
-  document.getElementById('adminPw').value='';
-  document.getElementById('adminError').style.display='none';
-  document.getElementById('adminModal').classList.add('open');
-  setTimeout(()=>document.getElementById('adminPw').focus(),100);
-}
-function closeAdminModal(){document.getElementById('adminModal').classList.remove('open')}
-function adminLogin(){
-  const pw=document.getElementById('adminPw').value;
-  if(pw===ADMIN_PW){
-    closeAdminModal();
-    document.body.classList.add('img-admin');
-    window.scrollTo({top:0,behavior:'smooth'});
-  }else{
-    document.getElementById('adminError').style.display='block';
-    document.getElementById('adminPw').value='';
-    document.getElementById('adminPw').focus();
-  }
-}
-
-/* 初期描画 */
-IMG_KEYS.forEach(renderImg);
+Object.keys(IMGS).forEach(renderImg);
 </script>
 </body>
 </html>
