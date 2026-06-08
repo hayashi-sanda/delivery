@@ -68,6 +68,19 @@
     .sdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.5);cursor:pointer;transition:background .3s,transform .3s}
     .sdot.active{background:var(--goldl);transform:scale(1.3)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    /* お知らせウィジェット */
+    .hn-section{max-width:900px;margin:0 auto;padding:20px 24px 0}
+    .hn-header{display:flex;align-items:center;gap:7px;margin-bottom:10px}
+    .hn-title{font-family:'Zen Old Mincho',serif;font-size:13px;letter-spacing:.15em;color:#7a5c2a;font-weight:700}
+    .hn-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+    .hn-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:#fdfaf4;border:1px solid #e8d9b8;border-left:3px solid #c8a96e;line-height:1.65;font-family:'Noto Serif JP',serif}
+    .hn-item--imp{background:#fff8f0;border-color:#c8a96e;border-left:4px solid #c8564b}
+    .hn-badge{font-size:11px;font-weight:700;padding:2px 7px;white-space:nowrap;flex-shrink:0;margin-top:1px;letter-spacing:.04em}
+    .hn-badge--imp{background:#c8564b;color:#fff}
+    .hn-badge--nor{background:#e8d9b8;color:#7a5c2a}
+    .hn-text{font-size:13.5px;color:#3d2b0e;flex:1}
+    .hn-date{font-size:11px;color:#9a7c4a;white-space:nowrap;flex-shrink:0;margin-top:3px}
+    /* 休業日 */
     .kyugyo-section{background:#fffbf4;border-top:3px solid var(--rust);border-bottom:1px solid var(--mist)}
     .kyugyo-inner{max-width:900px;margin:0 auto;display:flex;align-items:stretch;min-height:60px}
     .kyugyo-label{background:var(--rust);color:white;font-family:'Zen Old Mincho',serif;font-size:13px;letter-spacing:.2em;display:flex;align-items:center;justify-content:center;padding:14px 22px;white-space:nowrap;flex-shrink:0}
@@ -215,6 +228,7 @@
       .faq-section{padding:48px 16px}.contact-box{padding:32px 20px;width:100%;display:block}.contact-tel{font-size:30px}
       .footer-inner{grid-template-columns:1fr;gap:20px}.footer-right{flex-direction:column;gap:20px}.footer-nav{text-align:left;flex-direction:column;gap:8px}
       .kyugyo-inner{flex-direction:column}.kyugyo-label{padding:10px 16px;font-size:12px}.kyugyo-body{padding:10px 16px}.kyugyo-admin-bar{padding:10px 16px}
+      .hn-section{padding:16px 16px 0}
     }
     @media(max-width:520px){.food-grid{grid-template-columns:1fr}.food-card img{height:200px}}
     .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;background:none;border:none;padding:4px}
@@ -259,33 +273,19 @@
   <div class="hero-vert">三田市東本庄　仕出しはやし</div>
   <div class="scroll-hint"><div class="scroll-dots"><div class="sdot active" onclick="goSlide(0)"></div><div class="sdot" onclick="goSlide(1)"></div><div class="sdot" onclick="goSlide(2)"></div></div></div>
 </div>
-<!-- お知らせウィジェット -->
-<section id="hayashi-notice-section" style="max-width:780px;margin:0 auto 2em;padding:0 1.2em;">
-  <div id="hayashi-notice-inner" style="display:none;">
-    <p style="font-size:13px;font-weight:700;letter-spacing:.1em;color:#7a5c2a;margin:0 0 .6em;display:flex;align-items:center;gap:6px;">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-      お知らせ
-    </p>
-    <ul id="hayashi-notice-list" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;"></ul>
+
+<!-- ▼▼▼ お知らせウィジェット ▼▼▼ -->
+<div id="hn-wrap" style="display:none;background:#fffbf4;border-top:2px solid #c8a96e;border-bottom:1px solid #e8d9b8;">
+  <div class="hn-section">
+    <div class="hn-header">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      <span class="hn-title">お知らせ</span>
+    </div>
+    <ul class="hn-list" id="hn-list"></ul>
   </div>
-</section>
-<style>
-.hn-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:#fdfaf4;border:1px solid #e8d9b8;border-radius:3px;line-height:1.65;font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;}
-.hn-item--imp{background:#fff8f0;border-color:#c8a96e;border-left:4px solid #c8564b;padding-left:11px;}
-.hn-badge{font-size:11px;font-weight:700;padding:2px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:1px;letter-spacing:.04em;}
-.hn-badge--imp{background:#c8564b;color:#fff;}
-.hn-badge--nor{background:#e8d9b8;color:#7a5c2a;}
-.hn-text{font-size:14px;color:#3d2b0e;flex:1;}
-.hn-date{font-size:12px;color:#9a7c4a;white-space:nowrap;flex-shrink:0;margin-top:2px;}
-</style>
-<script>
-(function(){
-  var API="https://script.google.com/macros/s/AKfycbwI2ajZhghgwD8naUH5gXNZnDQbd5HYiIsuxRPwuitZI7IdvRTuHwXBrUaSF9hVmWjh/exec";
-  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
-  function fmtDate(str){var d=new Date(str);return(d.getMonth()+1)+"/"+d.getDate()+"まで";}
-  fetch(API).then(function(r){return r.json();}).then(function(data){
-    var today=new Date();today.setHours(0,0,0,0);
-    var active=data
+</div>
+<!-- ▲▲▲ お知らせウィジェット ▲▲▲ -->
+
 <!-- 休業日バナー -->
 <div class="kyugyo-section" id="kyugyoSection">
   <div class="kyugyo-inner">
@@ -415,8 +415,9 @@
 <div class="lightbox" id="lightbox"><span class="lightbox-close" id="lbClose">✕</span><img id="lbImg" src="" alt=""></div>
 
 <script>
-/* ══ GAS URL ══ ここにGASのURLを貼り付ける */
+/* ══ GAS URL ══ */
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbww6Xgnkrjbm49SDt3galgXoATzh6ZQIR4yo4G2pjRqU8V4woYfMr1e9SRM3LSJjJ32/exec';
+const NOTICE_URL = 'https://script.google.com/macros/s/AKfycbwI2ajZhghgwD8naUH5gXNZnDQbd5HYiIsuxRPwuitZI7IdvRTuHwXBrUaSF9hVmWjh/exec';
 const ADMIN_PW = 'hayashi1011';
 
 /* ハンバーガー */
@@ -449,6 +450,32 @@ window.addEventListener('scroll',()=>pageTop.classList.toggle('visible',window.s
 /* FAQ */
 function toggleFaq(q){q.closest('.faq-item').classList.toggle('open')}
 
+/* ══ お知らせウィジェット ══ */
+(function(){
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function fmtDate(str){var d=new Date(str);return(d.getMonth()+1)+'/'+d.getDate()+'まで';}
+  fetch(NOTICE_URL)
+    .then(function(r){return r.json();})
+    .then(function(data){
+      var today=new Date();today.setHours(0,0,0,0);
+      var active=data.filter(function(n){
+        var d=new Date(n.date);d.setHours(0,0,0,0);return d>=today;
+      });
+      if(active.length===0)return;
+      var list=document.getElementById('hn-list');
+      list.innerHTML=active.map(function(n){
+        var imp=n.important;
+        return '<li class="hn-item'+(imp?' hn-item--imp':'')+'">'
+          +'<span class="hn-badge '+(imp?'hn-badge--imp':'hn-badge--nor')+'">'+(imp?'重要':'お知らせ')+'</span>'
+          +'<span class="hn-text">'+esc(n.text)+'</span>'
+          +'<span class="hn-date">'+fmtDate(n.date)+'</span>'
+          +'</li>';
+      }).join('');
+      document.getElementById('hn-wrap').style.display='block';
+    })
+    .catch(function(){});
+})();
+
 /* ══ 休業日システム（GAS版） ══ */
 function kyugyoRender(list){
   const el=document.getElementById('kyugyoList');
@@ -477,10 +504,7 @@ async function kyugyoFetch(){
     const res=await fetch(GAS_URL);
     const list=await res.json();
     kyugyoRender(list);
-  }catch(e){
-    // GAS未設定の場合は空表示
-    kyugyoRender([]);
-  }
+  }catch(e){kyugyoRender([]);}
 }
 
 async function kyugyoAdd(){
@@ -491,15 +515,11 @@ async function kyugyoAdd(){
   const saving=document.getElementById('kyugyoSaving');
   saving.style.display='inline';
   try{
-    await fetch(GAS_URL,{
-      method:'POST',
-      mode:'no-cors',
-      body:JSON.stringify({type:'kyugyo',action:'add',date,memo:memoInput.value.trim(),password:ADMIN_PW})
-    });
+    await fetch(GAS_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({type:'kyugyo',action:'add',date,memo:memoInput.value.trim(),password:ADMIN_PW})});
     dateInput.value='';memoInput.value='';
     await new Promise(r=>setTimeout(r,1200));
     await kyugyoFetch();
-  }catch(e){alert('通信エラーが発生しました')}
+  }catch(e){alert('通信エラーが発生しました');}
   saving.style.display='none';
 }
 
@@ -508,14 +528,10 @@ async function kyugyoDelete(date){
   const saving=document.getElementById('kyugyoSaving');
   saving.style.display='inline';
   try{
-    await fetch(GAS_URL,{
-      method:'POST',
-      mode:'no-cors',
-      body:JSON.stringify({type:'kyugyo',action:'delete',date,password:ADMIN_PW})
-    });
+    await fetch(GAS_URL,{method:'POST',mode:'no-cors',body:JSON.stringify({type:'kyugyo',action:'delete',date,password:ADMIN_PW})});
     await new Promise(r=>setTimeout(r,1200));
     await kyugyoFetch();
-  }catch(e){alert('通信エラーが発生しました')}
+  }catch(e){alert('通信エラーが発生しました');}
   saving.style.display='none';
 }
 
