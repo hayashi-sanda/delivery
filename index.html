@@ -259,7 +259,33 @@
   <div class="hero-vert">三田市東本庄　仕出しはやし</div>
   <div class="scroll-hint"><div class="scroll-dots"><div class="sdot active" onclick="goSlide(0)"></div><div class="sdot" onclick="goSlide(1)"></div><div class="sdot" onclick="goSlide(2)"></div></div></div>
 </div>
-
+<!-- お知らせウィジェット -->
+<section id="hayashi-notice-section" style="max-width:780px;margin:0 auto 2em;padding:0 1.2em;">
+  <div id="hayashi-notice-inner" style="display:none;">
+    <p style="font-size:13px;font-weight:700;letter-spacing:.1em;color:#7a5c2a;margin:0 0 .6em;display:flex;align-items:center;gap:6px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      お知らせ
+    </p>
+    <ul id="hayashi-notice-list" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;"></ul>
+  </div>
+</section>
+<style>
+.hn-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:#fdfaf4;border:1px solid #e8d9b8;border-radius:3px;line-height:1.65;font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;}
+.hn-item--imp{background:#fff8f0;border-color:#c8a96e;border-left:4px solid #c8564b;padding-left:11px;}
+.hn-badge{font-size:11px;font-weight:700;padding:2px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:1px;letter-spacing:.04em;}
+.hn-badge--imp{background:#c8564b;color:#fff;}
+.hn-badge--nor{background:#e8d9b8;color:#7a5c2a;}
+.hn-text{font-size:14px;color:#3d2b0e;flex:1;}
+.hn-date{font-size:12px;color:#9a7c4a;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+</style>
+<script>
+(function(){
+  var API="https://script.google.com/macros/s/AKfycbwI2ajZhghgwD8naUH5gXNZnDQbd5HYiIsuxRPwuitZI7IdvRTuHwXBrUaSF9hVmWjh/exec";
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  function fmtDate(str){var d=new Date(str);return(d.getMonth()+1)+"/"+d.getDate()+"まで";}
+  fetch(API).then(function(r){return r.json();}).then(function(data){
+    var today=new Date();today.setHours(0,0,0,0);
+    var active=data
 <!-- 休業日バナー -->
 <div class="kyugyo-section" id="kyugyoSection">
   <div class="kyugyo-inner">
