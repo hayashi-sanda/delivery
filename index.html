@@ -56,7 +56,7 @@
     .slide-1{background:radial-gradient(ellipse 60% 70% at 70% 50%,rgba(120,60,20,.85) 0%,transparent 70%),radial-gradient(ellipse 80% 60% at 20% 60%,rgba(60,20,10,.9) 0%,transparent 80%),linear-gradient(135deg,#1a0c06 0%,#3a1a0a 50%,#5a2a10 100%)}
     .slide-2{background:radial-gradient(ellipse 60% 70% at 30% 50%,rgba(20,60,40,.85) 0%,transparent 70%),radial-gradient(ellipse 80% 60% at 75% 60%,rgba(10,30,20,.9) 0%,transparent 80%),linear-gradient(135deg,#061a10 0%,#0a3020 50%,#104030 100%)}
     .slide-3{background:radial-gradient(ellipse 60% 70% at 60% 40%,rgba(90,60,10,.85) 0%,transparent 70%),radial-gradient(ellipse 80% 60% at 25% 65%,rgba(40,25,5,.9) 0%,transparent 80%),linear-gradient(135deg,#1a1206 0%,#352412 50%,#50381a 100%)}
-    .slide::before{content:'';position:absolute;inset:0;z-index:0;background-image:url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3l2-2M0 2l1-1M3 4l1-1' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'/%3E%3C/svg%3E");pointer-events:none}
+    .slide::before{content:'';position:absolute;inset:0;z-index:0;background-image:url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3l2-2M0 2l1-1M3 4l1-1' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'/%3E%3C/svg%3E")pointer-events:none}
     .slide::after{content:'';position:absolute;top:40px;left:60px;right:60px;bottom:40px;border:1px solid rgba(176,136,40,.25);z-index:1;pointer-events:none}
     .slide-content{position:relative;z-index:3;text-align:center;color:white;padding:0 40px}
     .slide-badge{display:inline-block;font-size:10px;letter-spacing:.45em;color:var(--goldl);border:1px solid rgba(176,136,40,.6);padding:5px 20px;margin-bottom:32px;animation:fadeUp .8s ease both}
@@ -68,7 +68,6 @@
     .sdot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.5);cursor:pointer;transition:background .3s,transform .3s}
     .sdot.active{background:var(--goldl);transform:scale(1.3)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-    /* お知らせウィジェット */
     .hn-section{max-width:900px;margin:0 auto;padding:20px 24px 0}
     .hn-header{display:flex;align-items:center;gap:7px;margin-bottom:10px}
     .hn-title{font-family:'Zen Old Mincho',serif;font-size:13px;letter-spacing:.15em;color:#7a5c2a;font-weight:700}
@@ -80,7 +79,6 @@
     .hn-badge--nor{background:#e8d9b8;color:#7a5c2a}
     .hn-text{font-size:13.5px;color:#3d2b0e;flex:1}
     .hn-date{font-size:11px;color:#9a7c4a;white-space:nowrap;flex-shrink:0;margin-top:3px}
-    /* 休業日 */
     .kyugyo-section{background:#fffbf4;border-top:3px solid var(--rust);border-bottom:1px solid var(--mist)}
     .kyugyo-inner{max-width:900px;margin:0 auto;display:flex;align-items:stretch;min-height:60px}
     .kyugyo-label{background:var(--rust);color:white;font-family:'Zen Old Mincho',serif;font-size:13px;letter-spacing:.2em;display:flex;align-items:center;justify-content:center;padding:14px 22px;white-space:nowrap;flex-shrink:0}
@@ -274,7 +272,6 @@
   <div class="scroll-hint"><div class="scroll-dots"><div class="sdot active" onclick="goSlide(0)"></div><div class="sdot" onclick="goSlide(1)"></div><div class="sdot" onclick="goSlide(2)"></div></div></div>
 </div>
 
-<!-- ▼▼▼ お知らせウィジェット ▼▼▼ -->
 <div id="hn-wrap" style="display:none;background:#fffbf4;border-top:2px solid #c8a96e;border-bottom:1px solid #e8d9b8;">
   <div class="hn-section">
     <div class="hn-header">
@@ -284,9 +281,7 @@
     <ul class="hn-list" id="hn-list"></ul>
   </div>
 </div>
-<!-- ▲▲▲ お知らせウィジェット ▲▲▲ -->
 
-<!-- 休業日バナー -->
 <div class="kyugyo-section" id="kyugyoSection">
   <div class="kyugyo-inner">
     <div class="kyugyo-label">🗓 仕出し休業日</div>
@@ -346,10 +341,10 @@
   <div class="section-header reveal"><span class="section-en">SEASONAL</span><h2 class="section-jp">はやしの季節料理</h2><div class="section-rule"><span>✦</span></div></div>
   <div class="season-banner reveal"><div class="season-banner-inner"><div><div class="season-label">SEASON · MENU</div><div class="season-title">はやしの料理で<br>華やかに</div></div><div class="season-divider"></div><div><div class="season-desc">旬の食材を丁寧に仕上げた<br>会席料理・幕の内弁当・オードブル<br>ご予算に応じてお作りします</div></div></div></div>
   <div class="food-grid">
-    <div class="food-card reveal"><img src="https://www.hayashi-delivery.com/lib/resize_image.php?size=262&path=../upload/news2/15_1.jpg" alt="三田市の仕出し 幕の内弁当 3600円" loading="lazy"><div class="food-cap">幕の内弁当<br><strong>3,600円</strong>（税別）</div></div>
+    <div class="food-card reveal"><img src="food1.jpg" alt="三田市の仕出し 幕の内弁当 3600円" loading="lazy"><div class="food-cap">幕の内弁当<br><strong>3,600円</strong>（税別）</div></div>
     <div class="food-card reveal"><img src="https://www.hayashi-delivery.com/lib/resize_image.php?size=262&path=../upload/news2/6_1.jpg" alt="三田市の仕出し 碗盛膳 3600円" loading="lazy"><div class="food-cap">碗盛膳<br><strong>3,600円</strong>（税別）</div></div>
     <div class="food-card reveal"><img src="https://www.hayashi-delivery.com/lib/resize_image.php?size=262&path=../upload/news2/1573177128_1.jpg" alt="三田市の仕出し 花形弁当 3600円" loading="lazy"><div class="food-cap">花形弁当　<strong>3,600円</strong>（税別）<br>33cm × 33cm</div></div>
-    <div class="food-card reveal"><img src="https://www.hayashi-delivery.com/lib/resize_image.php?size=262&path=../upload/news2/14_1.jpg" alt="三田市の仕出し 幕の内弁当 2160円" loading="lazy"><div class="food-cap">幕の内弁当<br><strong>2,160円</strong>（税別）</div></div>
+    <div class="food-card reveal"><img src="food2.jpg" alt="三田市の仕出し 幕の内弁当 2160円" loading="lazy"><div class="food-cap">幕の内弁当<br><strong>2,160円</strong>（税別）</div></div>
     <div class="food-card reveal"><img src="odori.jpg" alt="三田市の仕出し パーティー用オードブル" loading="lazy"><div class="food-cap">オードブル　<strong>15,000円</strong>（税別）</div></div>
     <div class="food-card reveal"><img src="odori2.jpg" alt="三田市の仕出し パーティー用オードブル" loading="lazy"><div class="food-cap">オードブル　<strong>15,000円</strong>（税別）</div></div>
   </div>
@@ -415,42 +410,34 @@
 <div class="lightbox" id="lightbox"><span class="lightbox-close" id="lbClose">✕</span><img id="lbImg" src="" alt=""></div>
 
 <script>
-/* ══ GAS URL ══ */
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbww6Xgnkrjbm49SDt3galgXoATzh6ZQIR4yo4G2pjRqU8V4woYfMr1e9SRM3LSJjJ32/exec';
 const NOTICE_URL = 'https://script.google.com/macros/s/AKfycbwI2ajZhghgwD8naUH5gXNZnDQbd5HYiIsuxRPwuitZI7IdvRTuHwXBrUaSF9hVmWjh/exec';
 const ADMIN_PW = 'hayashi1011';
 
-/* ハンバーガー */
 const hamburger=document.getElementById('hamburger'),spNav=document.getElementById('spNav');
 spNav.style.display='none';
 hamburger.addEventListener('click',()=>{const o=spNav.style.display==='block';spNav.style.display=o?'none':'block';hamburger.classList.toggle('open',!o)});
 function closeMenu(){hamburger.classList.remove('open');spNav.style.display='none'}
 
-/* ライトボックス */
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
 document.querySelectorAll('.food-card img').forEach(img=>{img.addEventListener('click',()=>{lbImg.src=img.src;lbImg.alt=img.alt;lb.classList.add('open')})});
 document.getElementById('lbClose').addEventListener('click',()=>lb.classList.remove('open'));
 lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){lb.classList.remove('open');closeAdminModal()}});
 
-/* スライドショー */
 let current=0;
 const slides=document.querySelectorAll('.slide'),dots=document.querySelectorAll('.sdot');
 function goSlide(n){slides[current].classList.remove('active');dots[current].classList.remove('active');current=(n+slides.length)%slides.length;slides[current].classList.add('active');dots[current].classList.add('active')}
 setInterval(()=>goSlide(current+1),5500);
 
-/* Reveal */
 const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('shown');observer.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-/* ページトップ */
 const pageTop=document.getElementById('pageTop');
 window.addEventListener('scroll',()=>pageTop.classList.toggle('visible',window.scrollY>400));
 
-/* FAQ */
 function toggleFaq(q){q.closest('.faq-item').classList.toggle('open')}
 
-/* ══ お知らせウィジェット ══ */
 (function(){
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   function fmtDate(str){var d=new Date(str);return(d.getMonth()+1)+'/'+d.getDate()+'まで';}
@@ -476,7 +463,6 @@ function toggleFaq(q){q.closest('.faq-item').classList.toggle('open')}
     .catch(function(){});
 })();
 
-/* ══ 休業日システム（GAS版） ══ */
 function kyugyoRender(list){
   const el=document.getElementById('kyugyoList');
   const empty=document.getElementById('kyugyoEmpty');
@@ -537,7 +523,6 @@ async function kyugyoDelete(date){
 
 function kyugyoExitAdmin(){document.body.classList.remove('kyugyo-admin')}
 
-/* 管理者ログイン */
 function openAdminModal(){
   document.getElementById('adminPw').value='';
   document.getElementById('adminError').style.display='none';
